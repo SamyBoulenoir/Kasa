@@ -1,0 +1,18 @@
+/* Style du footer */
+.footer {
+    display: flex;
+    flex-direction: column; /* Aligne les textes verticalement */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    text-align: center;
+    height: 209px; /* Hauteur du footer */
+    background-color: black;
+    color: #FFFFFF;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile en haut */
+}
+
+.footer-text {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: 500;
+}

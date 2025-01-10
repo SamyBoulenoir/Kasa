@@ -1,0 +1,15 @@
+/* Structure de l'application */
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto; /* Ajoute un scroll si nécessaire */
+    width: 100vw;
+    height: 100%;
+}

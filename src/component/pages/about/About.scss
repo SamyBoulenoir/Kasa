@@ -1,0 +1,21 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about-landscape-container {
+    margin-top: 15px;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.about-landscape {
+    width: 100%;
+    max-height: 233px;
+    min-height: 111px;
+    object-fit: cover;
+    border-radius: 25px;
+}
