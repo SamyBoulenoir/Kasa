@@ -1,14 +1,15 @@
 /* Style du footer */
 .footer {
     display: flex;
-    flex-direction: column; /* Aligne les textes verticalement */
-    align-items: center; /* Centre horizontalement */
-    justify-content: center; /* Centre verticalement */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 209px; /* Hauteur du footer */
+    height: 209px;
+    min-height: 209px;
     background-color: black;
     color: #FFFFFF;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile en haut */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer-text {

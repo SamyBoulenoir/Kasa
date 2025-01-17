@@ -1,10 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './component/pages/home/Home';
 import About from './component/pages/about/About';
 import Header from './component/header/Header';
 import Footer from './component/footer/Footer';
 import NotFound from './component/pages/redirection/notFound/NotFound';
+import CardDetail from './component/pages/details/Details';
 import './App.scss';
 
 const App = () => {
@@ -16,6 +16,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/card/:id" element={<CardDetail />} />
+
             <Route path="*" element={<NotFound />} /> {/* Route 404 */}
           </Routes>
           <Footer />

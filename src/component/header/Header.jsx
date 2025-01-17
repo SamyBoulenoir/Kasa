@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import Logo from '../../assets/LOGO.png'
@@ -10,8 +9,6 @@ const Header = () => {
             <div className="logo">
                 <img src={Logo} alt="Logo" />
             </div>
-
-            {/* Navigation à droite */}
             <nav className="nav">
                 <ul>
                     <li className='nav-text'>

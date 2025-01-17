@@ -1,5 +1,4 @@
-import React from 'react';
-import Landscape from '../../../assets/Image source 2.png'
+import Landscape from '../../../assets/_Section 1.png'
 import './About.scss'
 import Dropdown from '../../utils/dropdown/Dropdown';
 
