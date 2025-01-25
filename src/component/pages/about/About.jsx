@@ -16,7 +16,9 @@ const About = () => {
         <img src={Landscape} alt='landscape' className='about-landscape'/>
       </div>
       {dropdownData.map((dropdown, index) => (
-        <Dropdown key={index} title={dropdown.title} content={dropdown.content} />
+        <div key={index} className='about-dropdown-container'>
+          <Dropdown title={dropdown.title} content={dropdown.content} />
+        </div>
       ))}
     </div>
   );

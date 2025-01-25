@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import  { useState } from "react";
 import './Dropdown.scss';
 import Arrow from '../../../assets/Arrow.svg';
 
 const Dropdown = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen); // Inverse l'état actuel
   };

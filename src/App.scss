@@ -1,15 +1,22 @@
-/* Structure de l'application */
+html, body {
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
 .app {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    height: 100vh;
+    font-family: 'Montserrat', Arial, sans-serif;
   }
-  
+
   .main-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: auto; /* Ajoute un scroll si nécessaire */
+    overflow: auto;
     width: 100vw;
     height: 100%;
 }

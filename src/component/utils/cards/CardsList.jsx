@@ -10,13 +10,9 @@ const CardsList = ({ data }) => {
 
   return (
     <div className="cards-list-container">
-      {rows.map((row, rowIndex) => (
-        <div className="cards-row" key={rowIndex}>
-          {row.map((item) => (
+          {data.map((item) => (
             <Card key={item.id} image={item.cover} title={item.title} id={item.id} />
           ))}
-        </div>
-      ))}
     </div>
   );
 };
