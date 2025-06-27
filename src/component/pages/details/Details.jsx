@@ -5,10 +5,13 @@ import './Details.scss';
 import Dropdown from '../../utils/dropdown/Dropdown';
 import StarFull from '../../../assets/Star-Full.png';
 import StarEmpty from '../../../assets/Star-Empty.png';
+import ArrowLeft from '../../../assets/leftArrow.png';
+import ArrowRight from '../../../assets/rightArrow.png';
 
 const CardDetail = () => {
     const { id } = useParams();
     const [pageInfo, setPageInfo] = useState({});
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,7 +21,7 @@ const CardDetail = () => {
         } else {
             navigate('/not-found');
         }
-    }, [id, navigate, pageInfo]);
+    }, [id, navigate]);
 
     const renderStars = (rating) => {
         const stars = [];
@@ -35,9 +38,43 @@ const CardDetail = () => {
         return stars;
     };
 
+    const handlePreviousImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? pageInfo.pictures.length - 1 : prevIndex - 1
+        );
+    };
+
+    const handleNextImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === pageInfo.pictures.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
     return (
         <div className="details-container">
-            {pageInfo.cover && <img className='details-property-image' src={pageInfo.cover} alt={pageInfo.title} />}
+            <div className="details-image-container">
+                {pageInfo.pictures && pageInfo.pictures.length > 0 && (
+                    <>
+                        {pageInfo.pictures.length > 1 && (
+                            <button className="arrow arrow-left" onClick={handlePreviousImage}>
+                                <img src={ArrowLeft} alt="Previous" />
+                            </button>
+                        )}
+
+                        <img
+                            className="details-property-image"
+                            src={pageInfo.pictures[currentImageIndex]}
+                            alt={pageInfo.title}
+                        />
+
+                        {pageInfo.pictures.length > 1 && (
+                            <button className="arrow arrow-right" onClick={handleNextImage}>
+                                <img src={ArrowRight} alt="Next" />
+                            </button>
+                        )}
+                    </>
+                )}
+            </div>
             <div className="details-info">
                 <div className="details-name-tag">
                     <h1 className='details-page-title'>{pageInfo.title}</h1>
@@ -62,12 +99,13 @@ const CardDetail = () => {
                     </div>
                 </div>
             </div>
+
             <div className="details-dropdown-container">
                 <div className="details-dropdown">
                     <Dropdown title="Description" content={[pageInfo.description]} />
                 </div>
                 <div className="details-dropdown">
-                    <Dropdown title="Equipement" content={pageInfo?.tags || ["error"]} />
+                    <Dropdown title="Équipements" content={pageInfo?.equipments || ["Aucun équipement disponible"]} />
                 </div>
             </div>
         </div>
