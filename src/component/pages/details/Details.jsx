@@ -49,7 +49,6 @@ const CardDetail = () => {
     };
 
  const handlePreviousImage = () => {
-    console.log("previous clicked")
     if (!pageInfo.pictures || pageInfo.pictures.length === 0) return;
     setCurrentImageIndex((prevIndex) =>
         prevIndex === 0 ? pageInfo.pictures.length - 1 : prevIndex - 1
@@ -57,7 +56,6 @@ const CardDetail = () => {
 };
 
 const handleNextImage = () => {
-    console.log("next clicked")
     if (!pageInfo.pictures || pageInfo.pictures.length === 0) return;
     setCurrentImageIndex((prevIndex) =>
         prevIndex === pageInfo.pictures.length - 1 ? 0 : prevIndex + 1

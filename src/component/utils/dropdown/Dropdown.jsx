@@ -6,7 +6,7 @@ import Arrow from '../../../assets/Arrow.svg';
 const Dropdown = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
-    setIsOpen(!isOpen); // Inverse l'état actuel
+    setIsOpen(!isOpen);
   };
 
   return (
