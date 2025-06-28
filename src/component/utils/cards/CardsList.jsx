@@ -3,11 +3,6 @@ import Card from './Card';
 import './CardsList.scss';
 
 const CardsList = ({ data }) => {
-  const rows = [];
-  for (let i = 0; i < data.length; i += 3) {
-    rows.push(data.slice(i, i + 3));
-  }
-
   return (
     <div className="cards-list-container">
           {data.map((item) => (
