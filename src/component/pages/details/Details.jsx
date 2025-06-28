@@ -18,10 +18,20 @@ const CardDetail = () => {
         const item = data.find((element) => element.id === id);
         if (item) {
             setPageInfo(item);
+            setCurrentImageIndex(0);
         } else {
             navigate('/not-found');
         }
     }, [id, navigate]);
+
+    useEffect(() => {
+        if (pageInfo?.pictures && pageInfo.pictures.length > 0) {
+            pageInfo.pictures.forEach((src) => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+    }, [pageInfo]);
 
     const renderStars = (rating) => {
         const stars = [];
@@ -38,17 +48,21 @@ const CardDetail = () => {
         return stars;
     };
 
-    const handlePreviousImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === 0 ? pageInfo.pictures.length - 1 : prevIndex - 1
-        );
-    };
+ const handlePreviousImage = () => {
+    console.log("previous clicked")
+    if (!pageInfo.pictures || pageInfo.pictures.length === 0) return;
+    setCurrentImageIndex((prevIndex) =>
+        prevIndex === 0 ? pageInfo.pictures.length - 1 : prevIndex - 1
+    );
+};
 
-    const handleNextImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === pageInfo.pictures.length - 1 ? 0 : prevIndex + 1
-        );
-    };
+const handleNextImage = () => {
+    console.log("next clicked")
+    if (!pageInfo.pictures || pageInfo.pictures.length === 0) return;
+    setCurrentImageIndex((prevIndex) =>
+        prevIndex === pageInfo.pictures.length - 1 ? 0 : prevIndex + 1
+    );
+};
 
     return (
         <div className="details-container">
@@ -66,6 +80,12 @@ const CardDetail = () => {
                             src={pageInfo.pictures[currentImageIndex]}
                             alt={pageInfo.title}
                         />
+
+                        {pageInfo.pictures.length > 1 && (
+                            <div className="details-carousel-indicator">
+                                {currentImageIndex + 1} / {pageInfo.pictures.length}
+                            </div>
+                        )}
 
                         {pageInfo.pictures.length > 1 && (
                             <button className="arrow arrow-right" onClick={handleNextImage}>

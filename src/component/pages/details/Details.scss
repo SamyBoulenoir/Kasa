@@ -170,6 +170,19 @@
     opacity: 1;
 }
 
+.details-carousel-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+}
+
 
 @media (max-width: 735px) {
     .arrow img {
